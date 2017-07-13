@@ -1,28 +1,43 @@
 Answer each question in a written format
 
 1. What does semantic HTML mean?
+ It means you write not just for view of content but showing your HTML to show the meaning of the HTML. Like an <article> <sections, <header, <footer and an <aside describe what the HTML is with its name. These describe what the HTML is doing.  This is important for accessibility.   Also like if it was just written content it has to do with the flow and relationship. So <h2, <h1 etc would all flow accordiing to an orderly manner not just placed for size or anything stylistic. 
 
 2. What is the box model?
+Bascially every element is like a box on the screen. Elements have these parts: margins, borders, padding, and the actual content. You can manipulate these to get your desired results. Margin is space to next element. Border is around the padding and content inside margin.  Padding is space in between content and border. 
 
 3. What is the difference between IDs and Classes?
+Ids and classes help target elements for styling and other uses like manipulating the DOM with jQuery or JavaScript.  Ids are more specific with a weight of 0,1,0,0 which is important for who would win out if styles overlapped. Classes have a weight of 0,0,1,0.  Classes can be resused on many elements while ids should only be used for 1 single element in the whole app. 
 
 4. What does the z-index do?
+The z-index is a way to order how elements stack on top of each other on a page. An element with greater stack order is always in front of or on top of an element with a lower stack order. This is useful for ordering your elements on the page the way you want them like with overlapping picutres or something. So a z-index of 10 shows above 8 etc. 
 
 5. Summarize what the keyword 'this' is used for?
+'this' is used in JS to determine and set the context of a property.  So this.prop is really a specific Obj.prop. The "this" keyword is basically created for us inside functions. With constructor functions and many other places they can be used to like pronouns in the English language.  For example: Missy is awesome and she is so smart. We used she instead of repeating Missy. Further, just like in English  things can get confusing with context of pronouns. Lucky for us in JS we can BIND 'this' to a certain object so things stay clear of what context its referring to.  
+
 
 6. What is a callback?
+    A function that is used as parameter for another function. Bascially meaning we will use it later. For example we use callbacks alot when saying .controller("name", function() {
 
+    })
 7. What is a closure?
+   Where a function returns another function.  This is important dealing with scope and makign copies of variables in certain scope that would not be possible otherwise. Its kind of like binding variables. Closures can make variables private which help us be able to change them when we want to by using the return function. It helps for not getting variables mixed up with global stuff. 
 
 8. How does prototype work?
-
+    If you look up all the array methods on MDN they use for example: Array.prototype.join().  This means an array we create inherits all the methods from those pre-fabbed methods off the Array object. 
+    Prototype has to do with inheritance.  The ARRAY object like with new Array  (we dont use this anymore)  inherits all methods.  So we can do the same thing with our own constructor functions.  Meaning we can add protoypes to them by using the prototype key word.  We can do Car.prototype.color (property) or Car.prototype.speed = function ....(a method). This will add that to the call of the constructor.  So new Car...will now include that on there jsut like .join is on all of the arrays we use. 
 9. What is MVC?
-
+-Model–view–controller is a design pattern for user interfaces where we separate our code based on areas of responsibility. MODEL is responsible for the Data like get, retrieve, manipulate and responds to requests for information about its state (usually from the view), and responds to instructions to change state (usually from the controller). VIEW manages the display of information what user sees. CONTROLLER is the middle man to gives the data to the view. The controller takes input or actions from a user acting as a bidge to help the view or model update.   
 10. What is the component lifecycle?
+A lifecyle that is to say when it has interaction with the DOM or life on the DOM.  First its creation and insertion into the DOM. Updates can re render it. Also a component can be removed from the DOM. So "creation to death" or talking about its lifecycle. To further see the importance of lifecycle we see hooks which allow for interaction with the component at particular times in this process. For example, componentWillMount(), componentDidMount(), componentWillReceiveProps(). In Angular hooks like $onInit(), $onDestroy() these even say what is happening as to those in React. Its like a history of the element and its relation to the DOM. 
 
 11. What is REST?
+Defined: REpresentational State Transfer.
+Basically this is a set of design principles or set of procedure and guidelines for making web requests. You could also say its a protocol for web requests.  HTTP verbs available and when used your request is RESTful, these are mostly GET, PUT, DELETE, POST.REST has to do with the way that HTTP works. The requests and 'other verbs here' for data in its communication with other systems. 
 
 12. Name three ways of getting data from the URL using express
+req.body, req.params req.query
+
 
 create table users (
 id serial,
@@ -32,10 +47,20 @@ email varchar(255)
 
 12. Given the Schema above, write the following four basic CRUD db queries using postgres syntax
 
--Get all users:
+-Get all users: 
+SELECT * 
+FROM users
 
 -Create a new user with the name of 'your name' and an email of 'fake@fake.com':
+INSERT INTO users (name, email)
+VALUES ('your name','fake@fake.com')
 
 -Update the newly created user's name to 'Bobby Boy':
+ UPDATE users
+ SET name = 'Bobby Boy'
+ WHERE id = 1 ---------assuming only 1 user since we only added one.
 
 -Delete the newly updated user:
+
+DELETE FROM users
+WHERE id = 1
